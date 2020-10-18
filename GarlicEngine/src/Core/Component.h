@@ -1,5 +1,4 @@
 #pragma once
-#include "gepch.h"
 
 namespace Garlic {
 

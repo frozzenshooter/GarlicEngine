@@ -1,5 +1,5 @@
 #pragma once
-
+#include <vector>
 #include "Component.h"
 
 namespace Garlic {
@@ -16,7 +16,6 @@ namespace Garlic {
         CoreManager(CoreManager const&) = delete;
         void operator=(CoreManager const&) = delete;
         ~CoreManager() {};
-
 
         static CoreManager& GetInstance();
 
