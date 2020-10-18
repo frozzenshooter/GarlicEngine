@@ -1,1 +1,1 @@
-#define TEST "Garlic Engine"
+#include "Core/CoreManager.h""

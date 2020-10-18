@@ -1,8 +1,11 @@
 #include <iostream>
-#include "GarlicEngine.h"
+#include <GarlicEngine.h>
 
 int main() {
 
-    std::cout << "App with " <<  TEST <<" running!" << std::endl;
+    Garlic::CoreManager coreManager;
 
+    coreManager.StartUp();
+    coreManager.Run();
+    coreManager.Shutdown();
 }
