@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Component.h"
+#include "Logging/Log.h"
 
 namespace Garlic {
 
@@ -9,6 +10,7 @@ namespace Garlic {
         CoreManager() 
             :m_Running(true), m_StartUpSuccessful(false) 
         {
+
         };
 
     public:
@@ -25,6 +27,7 @@ namespace Garlic {
     private:
         bool m_Running;
         bool m_StartUpSuccessful;
-        std::vector<Component*> m_Components;
+        Logger m_Logger;
+
     };
 }

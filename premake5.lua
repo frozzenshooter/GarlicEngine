@@ -36,7 +36,8 @@ project "GarlicEngine"
 
     includedirs
     {
-        "%{prj.name}/src" 
+        "%{prj.name}/src",        
+        "%{prj.name}/vendor/spdlog/include"
     }
 
     links
@@ -81,6 +82,7 @@ project "App"
 
         includedirs
         {
+            "GarlicEngine/vendor/spdlog/include",
             "GarlicEngine/src"
         }
 

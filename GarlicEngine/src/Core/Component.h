@@ -1,19 +1,21 @@
 #pragma once
 
+#include <string>
+
 namespace Garlic {
 
     class Component {
 
     public:
-        Component(): m_Name("Manager") {}
+        Component(const std::string& name = "Manager") : m_Name(name) {}
         ~Component() {}
 
         inline const std::string& GetName() const { return m_Name; }
 
-        virtual bool StartUp() {}
-        virtual bool ShutDown() {}
+        virtual bool StartUp() = 0;
+        virtual bool ShutDown() = 0;
 
-    protected:
+    private:
         std::string m_Name;
     };
 }
