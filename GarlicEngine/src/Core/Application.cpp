@@ -1,19 +1,24 @@
 #include "gepch.h"
-#include "CoreManager.h"
+#include "Application.h"
 
 namespace Garlic {
 
-    CoreManager& CoreManager::GetInstance() {
+    Application& Application::GetInstance() {
 
-        static CoreManager manager;
+        static Application app;
 
-        // Startup logger by creating the core to be able to log other functions
-        manager.m_Logger.StartUp();
+        if (!app.m_StartUpDone) {
+            app.StartUp();
+        }
 
-        return manager;
+        return app;
     }
 
-    void CoreManager::StartUp() {
+    void Application::StartUp() {
+
+        // startup logger as first element
+        m_Logger.StartUp();
+
         GE_CORE_INFO("StartUp of components started");
 
         // StartUp all components of the engine
@@ -24,25 +29,31 @@ namespace Garlic {
         } else {
             GE_CORE_ERROR("StartUp wasn't successfull");
         }
+
+        m_StartUpDone = true;
     }
 
-    void CoreManager::Run() {
+    void Application::Run() {
 
         if (m_StartUpSuccessful) {
+           
+            int i = 100;
             while (m_Running) {
-                // CENTRAL LOOP
-
+                // MAIN LOOP
+                i--;
                 GE_CORE_INFO("Running!");
 
+                if (i <= 1) {
+                    m_Running = false;
+                }
             }
         }
         else {
             GE_CORE_ERROR("Running not possible, because StartUp wasn't successfull!");
         }
-
     }
 
-    void CoreManager::Shutdown() {
+    void Application::Shutdown() {
 
         GE_CORE_INFO("Shutdown started!");
 
