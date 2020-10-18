@@ -1,11 +1,12 @@
 #include "CoreManager.h"
 
 namespace Garlic {
-    
-    CoreManager::CoreManager() 
-        :m_Running(true), m_StartUpSuccessful(false)
-    {
 
+    CoreManager& CoreManager::GetInstance() {
+
+        static CoreManager manager;
+
+        return manager;
     }
 
     void CoreManager::StartUp() {

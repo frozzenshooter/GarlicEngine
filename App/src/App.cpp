@@ -1,9 +1,11 @@
 #include <iostream>
 #include <GarlicEngine.h>
 
+using namespace Garlic;
+
 int main() {
 
-    Garlic::CoreManager coreManager;
+    CoreManager& coreManager(CoreManager::GetInstance());
 
     coreManager.StartUp();
     coreManager.Run();
