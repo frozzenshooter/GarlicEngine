@@ -5,9 +5,11 @@ using namespace Garlic;
 
 int main() {
 
-    CoreManager& coreManager(CoreManager::GetInstance());
+    //TODO: Solution for logger -> if the macro is used bevor the core manager init -> read access problem
 
-    coreManager.StartUp();
+    CoreManager& coreManager(CoreManager::GetInstance());
+    coreManager.StartUp();    
+    GE_INFO("Logging from app");
     coreManager.Run();
     coreManager.Shutdown();
 }
