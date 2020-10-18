@@ -1,13 +1,13 @@
 #pragma once
-#include <string>
+#include "gepch.h"
 
 namespace Garlic {
 
-    class Manager {
+    class Component {
 
     public:
-        Manager(): m_Name("Manager") {}
-        ~Manager() {}
+        Component(): m_Name("Manager") {}
+        ~Component() {}
 
         inline const std::string& GetName() const { return m_Name; }
 

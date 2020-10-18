@@ -1,6 +1,6 @@
-#include "Manager.h"
-#include <vector>
-#include <memory>
+#pragma once
+
+#include "Component.h"
 
 namespace Garlic {
 
@@ -15,7 +15,7 @@ namespace Garlic {
        
         CoreManager(CoreManager const&) = delete;
         void operator=(CoreManager const&) = delete;
-        ~CoreManager() {}
+        ~CoreManager() {};
 
 
         static CoreManager& GetInstance();
@@ -26,6 +26,6 @@ namespace Garlic {
     private:
         bool m_Running;
         bool m_StartUpSuccessful;
-        std::vector<Manager*> m_Managers;
+        std::vector<Component*> m_Components;
     };
 }

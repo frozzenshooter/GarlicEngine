@@ -1,3 +1,4 @@
+#include "gepch.h"
 #include "CoreManager.h"
 
 namespace Garlic {
@@ -11,7 +12,7 @@ namespace Garlic {
 
     void CoreManager::StartUp() {
 
-        //m_Managers.push_back(nullptr);
+        //m_Components.push_back(nullptr);
 
 
         m_StartUpSuccessful = true;
@@ -34,8 +35,8 @@ namespace Garlic {
     void CoreManager::Shutdown() {
 
         // Shutdown managers in reverse order
-        for (std::vector<Manager*>::reverse_iterator pManager = m_Managers.rbegin(); pManager != m_Managers.rend(); ++pManager) {
-            (*pManager)->ShutDown();
+        for (std::vector<Component*>::reverse_iterator pComponent = m_Components.rbegin(); pComponent != m_Components.rend(); ++pComponent) {
+            (*pComponent)->ShutDown();
         }
     }
-}
+};

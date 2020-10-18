@@ -25,7 +25,8 @@ project "GarlicEngine"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
     
-    -- TODO: INCLUDE PRECOMPILED HEADER
+    pchheader "gepch.h"
+	pchsource "GarlicEngine/src/gepch.cpp"
 
     files
     {
@@ -35,7 +36,7 @@ project "GarlicEngine"
 
     includedirs
     {
-        "{%prj.name}/src" 
+        "%{prj.name}/src" 
     }
 
     links

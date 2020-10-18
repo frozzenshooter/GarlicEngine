@@ -1,1 +1,3 @@
-#include "Core/CoreManager.h""
+#pragma once
+
+#include "Core/CoreManager.h"
