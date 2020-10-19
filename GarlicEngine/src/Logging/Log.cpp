@@ -4,10 +4,10 @@
 
 namespace Garlic {
 
-    std::shared_ptr<spdlog::logger> Logger::s_CoreLogger;
-    std::shared_ptr<spdlog::logger> Logger::s_ClientLogger;
+    std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
+    std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 
-    bool Logger::StartUp()
+    void Log::Init()
     {
         spdlog::set_pattern("%^[%T] %n: %v%$");
 
@@ -16,11 +16,5 @@ namespace Garlic {
 
         s_ClientLogger = spdlog::stdout_color_mt("App");
         s_ClientLogger->set_level(spdlog::level::trace);
-
-        return true;
-    }
-
-    bool Logger::ShutDown() {
-        return true;
     }
 }

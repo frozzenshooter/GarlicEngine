@@ -6,30 +6,21 @@
 namespace Garlic {
 
     class Application {
-    private:
-        Application()
-            :m_Running(true), m_StartUpSuccessful(false), m_StartUpDone(false)
-        {
-        };
-
-        void StartUp();
-        void Shutdown();
-
     public:
-        ~Application() {
-            Shutdown();
-        };
+        Application();
+        virtual ~Application() {};
 
         Application(Application const&) = delete;
         void operator=(Application const&) = delete;
 
-        static Application& GetInstance();
+        inline static Application& Get() { return *s_Instance; }
         void Run();
 
     private:
         bool m_Running;
-        bool m_StartUpSuccessful;
-        bool m_StartUpDone;
-        Logger m_Logger;
+        static Application* s_Instance;
     };
+
+    Application* CreateApplication();
 }
+
